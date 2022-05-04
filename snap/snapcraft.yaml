@@ -1875,7 +1875,7 @@ parts:
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtserialport.git
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtremoteobjects.git
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtsvg.git
-            git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtscript.git
+            git clone -b v5.15.3-lts --depth=1 git://code.qt.io/qt/qtscript.git
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtdeclarative.git
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtwayland.git
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qttools.git
@@ -1900,11 +1900,11 @@ parts:
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtserialbus.git
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qttranslations.git
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtwebglplugin.git
-            git clone --recurse-submodules --shallow-submodules -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtwebengine.git
+            git clone --recurse-submodules --shallow-submodules -b v5.15.3-lts --depth=1 git://code.qt.io/qt/qtwebengine.git
             # git clone -b v5.212.0-alpha4 --depth=1 git://code.qt.io/qt/qtwebkit.git
             # git clone -b v5.22.5 --depth=1 https://invent.kde.org/plasma/kdecoration.git
             # git clone -b v5.22.5 --depth=1 https://invent.kde.org/plasma/breeze.git
-            git clone -b v5.22.5 --depth=1 https://invent.kde.org/plasma/plasma-integration.git
+            git clone -b v5.24.5 --depth=1 https://invent.kde.org/plasma/plasma-integration.git
             # ffmpeg and dependencies sources
             git clone -b release-2.0.18 --depth=1 https://github.com/libsdl-org/SDL.git
             git clone -b v1.4.4 --depth=1 https://github.com/Haivision/srt.git

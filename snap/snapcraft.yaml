@@ -1431,6 +1431,7 @@ parts:
         - PATH: $SNAPCRAFT_STAGE/usr/bin:$PATH
         override-pull: |
             cp -a $SNAPCRAFT_PART_SRC/../../sources/src/qtwebengine/. $SNAPCRAFT_PART_SRC
+            find $SNAPCRAFT_STAGE/qtwebengine_5_15_9 -type f -print0 | sort -z | xargs -r0 git apply
         override-build: |
             if [ $SNAPCRAFT_TARGET_ARCH != "ppc64el" ]; then
                 # Setting number of build jobs to a safe number to prevent running out of memory during QtWebengine build
@@ -1438,7 +1439,7 @@ parts:
                 roundedmem=$(python3 -c "print(round($memtotal/1024000.0))")
                 maxcoresformem=$(python3 -c "print(max(1, int(($roundedmem / 2)-1)))")
                 numcoreslow=$(python3 -c "print(min($maxcoresformem, $SNAPCRAFT_PARALLEL_BUILD_COUNT))")
-                $SNAPCRAFT_STAGE/usr/lib/qt5/bin/qmake -qtconf "$SNAPCRAFT_STAGE/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/qt5/qt.conf"
+                $SNAPCRAFT_STAGE/usr/lib/qt5/bin/qmake QMAKE_PYTHON2=python2 -qtconf "$SNAPCRAFT_STAGE/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/qt5/qt.conf"
                 make -j$numcoreslow NINJAJOBS=-j$numcoreslow
                 make INSTALL_ROOT="$SNAPCRAFT_PART_INSTALL/tmp" install
                 cp -a "$SNAPCRAFT_PART_INSTALL/tmp$SNAPCRAFT_STAGE/." "$SNAPCRAFT_PART_INSTALL"
@@ -1900,8 +1901,9 @@ parts:
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtserialbus.git
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qttranslations.git
             git clone -b v5.15.3-lts-lgpl --depth=1 git://code.qt.io/qt/qtwebglplugin.git
-            git clone --recurse-submodules --shallow-submodules -b v5.15.3-lts --depth=1 git://code.qt.io/qt/qtwebengine.git
+            git clone --recurse-submodules --shallow-submodules -b v5.15.9-lts --depth=1 git://code.qt.io/qt/qtwebengine.git
             # git clone -b v5.212.0-alpha4 --depth=1 git://code.qt.io/qt/qtwebkit.git
+            git clone -b v5.94.0 --depth=1 https://invent.kde.org/frameworks/extra-cmake-modules.git
             # git clone -b v5.22.5 --depth=1 https://invent.kde.org/plasma/kdecoration.git
             # git clone -b v5.22.5 --depth=1 https://invent.kde.org/plasma/breeze.git
             git clone -b v5.24.5 --depth=1 https://invent.kde.org/plasma/plasma-integration.git

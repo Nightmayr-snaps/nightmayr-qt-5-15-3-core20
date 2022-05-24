@@ -1621,7 +1621,7 @@ parts:
         - qtserialbus
         - qttranslations
         - qtwebglplugin
-        # - qtwebengine
+        - qtwebengine
     kcoreaddons:
         source: https://invent.kde.org/frameworks/kcoreaddons.git
         source-tag: v5.94.0

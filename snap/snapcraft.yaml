@@ -1,5 +1,5 @@
 ---
-name: nightmayr-qt-5-15-4-core20
+name: nightmayr-qt-5-15-4-2004
 version: 5.15.4
 base: core20
 summary: Shared Qt 5.15
@@ -9,7 +9,7 @@ description: |
 confinement: strict
 grade: stable
 slots:
-    nightmayr-qt-5-15-4-core20:
+    nightmayr-qt-5-15-4-2004:
       interface: content
       read:
         - /
